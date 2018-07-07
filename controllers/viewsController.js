@@ -14,13 +14,6 @@ exports.homePage = (req, res, next) => {
       title: 'Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS',
       message: 'Welcome to ReadSpree! Check out our collection of books and find only the best from many different genres.' });
   };
-  
-  exports.books = (req, res, next) => {
-    const message = 'List of Books';
-    res.render('books', { 
-      title: 'Books',
-      message });       
-  };
 
   exports.getBooks = (req, res) => {    
     Book.find((err, books) => {
@@ -28,7 +21,7 @@ exports.homePage = (req, res, next) => {
             res.render('error');
         } else {
             res.render('books', {
-            title: 'Books',
+            title: 'List of Books',
             books,
             });
         }
