@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<!--
+ * File Name: index.ejs
+ * Author Name: Henrique Oliveira
+ * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
+ * File Description: Homepage ...
+-->
+
+<% include partials/header %>
+    <!--Homepage-->
+    <main class="center" style="margin-left: 200px; margin-right: 200px">
+      <div class="section" id="home" style="color:#272746">
+        <h5 id="mainText" class="center"><%= title %></h5>
+        <h1 class="center"><%= name %></h1>
+        <h6 id="mainText" class="center"><%= message %></h6>
+      </div>
+    </main>
+<% include partials/footer %>   
