@@ -13,6 +13,6 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', viewsController.homePage);
-router.get('/books', viewsController.books);
+router.get('/books', viewsController.getBooks);
 
 module.exports = router;

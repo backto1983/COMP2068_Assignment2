@@ -2,8 +2,11 @@
  * File Name: viewController.js
  * Author Name: Henrique Oliveira
  * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
- * File Description: logical javaScript statements to control HTML views
+ * File Description: Logical javaScript statements to control HTML views
  */
+
+ // Link to Book model
+const Book = require('../models/Book');
 
  // Each function below control one view (index, books, ...) 
 exports.homePage = (req, res, next) => {
@@ -18,3 +21,16 @@ exports.homePage = (req, res, next) => {
       title: 'Books',
       message });       
   };
+
+  exports.getBooks = (req, res) => {    
+    Book.find((err, books) => {
+        if(err) {
+            res.render('error');
+        } else {
+            res.render('books', {
+            title: 'Books',
+            books,
+            });
+        }
+    });
+};
