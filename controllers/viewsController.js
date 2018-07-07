@@ -9,7 +9,6 @@
 exports.homePage = (req, res, next) => {
     res.render('index', { 
       title: 'Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS',
-      name: 'ReadSpree',
       message: 'Welcome to ReadSpree! Check out our collection of books and find only the best from many different genres.' });
   };
   
