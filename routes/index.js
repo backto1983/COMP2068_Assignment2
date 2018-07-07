@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * File Name: index.js
+ * Author Name: Henrique Oliveira
+ * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
+ * File Description: view routing
+ */
+
+const express = require('express');
+const viewsController = require('../controllers/viewsController')
+
+// Using router to handle different browser requests
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', viewsController.homePage);
+router.get('/books', viewsController.books);
 
 module.exports = router;
