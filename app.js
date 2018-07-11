@@ -4,6 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Passport dependencies
+const passport = require('passport');
+const session = require('express-session');
+
+const localStrategy = require('passport-local').Strategy;
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -29,6 +35,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Passport configuration
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: false
+  })
+);
+
+// Initialize passport 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Use the User model to manage users
+const user = require('./models/User');
+passport.use(user.createStrategy());
+
+// Read/write user login information to MongoDB
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

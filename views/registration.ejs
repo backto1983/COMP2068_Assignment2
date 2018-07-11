@@ -1,0 +1,27 @@
+<% include partials/header %>
+<main class="center">
+    <h1><%= title %></h1>
+    <form class="container" style="margin-left: 30%; margin-right: 30%" method="POST"> 
+        <div class="row">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <input placeholder="Username" id="username" type="text" class="validate" required>
+                <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <input id="password" type="password" class="validate" required>
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <input id="confirm" type="password" class="validate" required>
+                <label for="password_confirm">Retype Password</label>
+            </div>
+        </div>        
+    </form>
+    <button type="submit" class="waves-effect waves-light btn-small black" style="margin-bottom: 20px">Create my Account</button>
+    <div class="row ">Already registered? <a class="waves-effect waves-light btn-small black" href="/login">Login</a></div>
+</main>
+<% include partials/footer %>

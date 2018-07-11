@@ -6,7 +6,8 @@
  */
 
 const express = require('express');
-const viewsController = require('../controllers/viewsController')
+const viewsController = require('../controllers/viewsController');
+const userController = require('../controllers/userController');
 
 // Using router to handle different browser requests
 const router = express.Router();
@@ -14,6 +15,7 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);
+router.get('/registration', userController.registerForm);
 router.get('/admin/delete/:id', viewsController.deleteBook);
 
 module.exports = router;
