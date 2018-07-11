@@ -1,5 +1,5 @@
 /**
- * File Name: viewController.js
+ * File Name: viewsController.js
  * Author Name: Henrique Oliveira
  * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
  * File Description: Logical javaScript statements to control HTML views
@@ -27,3 +27,16 @@ exports.homePage = (req, res, next) => {
         }
     });
 };
+
+exports.deleteBook = (req, res) => {
+    Book.findByIdAndRemove(
+      { _id: req.params.id },
+      async (err, bookJustDeleted) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/books');
+        }
+      },
+    );
+  };

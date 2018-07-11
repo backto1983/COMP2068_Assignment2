@@ -14,5 +14,6 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);
+router.get('/admin/delete/:id', viewsController.deleteBook);
 
 module.exports = router;
