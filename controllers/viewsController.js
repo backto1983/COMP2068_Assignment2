@@ -12,7 +12,9 @@ const Book = require('../models/Book');
 exports.homePage = (req, res, next) => {
     res.render('index', { 
       title: 'Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS',
-      message: 'Welcome to ReadSpree! Check out our collection of books and find only the best from many different genres.' });
+      message: 'Welcome to ReadSpree! Check out our collection of books and find only the best from many different genres.',
+      user: req.user,
+     });
   };
 
   exports.getBooks = (req, res) => {    
@@ -23,6 +25,7 @@ exports.homePage = (req, res, next) => {
             res.render('books', {
             title: 'List of Books',
             books,
+            user: req.user,
             });
         }
     });

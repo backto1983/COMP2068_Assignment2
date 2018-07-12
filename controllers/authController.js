@@ -8,7 +8,7 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 
-const User = mongoose.model('User');
+const User = require('../models/User');
 
 exports.isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {

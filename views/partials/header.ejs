@@ -30,7 +30,12 @@
             <li><a href="/quotes"><i class="material-icons">format_quote</i></a></li>
             <li><a href="/registration">Register</a></li>
             <li><a href="/login">Login</a></li>
-          </ul>
+            <% if (user) { %>
+              <li><a href="/logout">Logout</a></li>
+            <% } %>
+
+            <!-- <%= user.username %> -->
+          </ul>           
         </div>
       </div>
     </nav>
