@@ -8,6 +8,7 @@
 const express = require('express');
 const viewsController = require('../controllers/viewsController');
 const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 
 // Using router to handle different browser requests
 const router = express.Router();
@@ -17,10 +18,10 @@ router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);
 
 router.get('/registration', userController.registerForm);
-router.post('/registration', userController.register); //, authController.login
+router.post('/registration', userController.register, authController.login); 
 
 router.get('/login', userController.loginForm);
-//router.post('/login', authController.login);
+router.post('/login', authController.login);
 
 router.get('/logout', (req, res) => {
   req.logout();
