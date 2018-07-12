@@ -25,7 +25,7 @@ router.post('/login', authController.login);
 
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/books');
+  res.redirect('/login');
 });
 
 router.get('/admin/delete/:id', viewsController.deleteBook);

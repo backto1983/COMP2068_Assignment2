@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 
-//const localStrategy = require('passport-local').Strategy;
+const localStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

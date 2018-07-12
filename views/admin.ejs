@@ -1,0 +1,21 @@
+<% include partials/header %>
+<main class="center" style="margin-left: 100px; margin-right: 100px">
+    <h1 style="color:#000000"><%= title %></h1>
+    <table class="responsive-table centered striped highlight" style="color:#000000">
+        <thead>
+            <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody><% for (let i = 0; i < users.length; i++) { %>        
+        <tr>
+            <td><%= books[i]._id %></td>
+            <td><%= books[i].username %></td>
+        </tr>   
+        <% } %></tbody>    
+    </table>
+</main>
+<% include partials/footer %>   
