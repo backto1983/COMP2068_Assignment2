@@ -19,7 +19,19 @@ exports.isLoggedIn = (req, res, next) => {
 };
 
 exports.login = passport.authenticate('local', {
-  successRedirect: '/admin',
+  successRedirect: '/users',
   failureRedirect: '/login',
   failureMessage: 'Invalid Login',
+});
+
+exports.googlePre = passport.authenticate('google', {
+  scope: [
+    'https://www.googleapis.com/auth/plus.login',
+    'https://www.googleapis.com/auth/plus.profile.emails.read',
+  ],
+});
+
+exports.googlePost = passport.authenticate('google', {
+  successRedirect: '/books', //'/users'
+  failureRedirect: '/login',
 });

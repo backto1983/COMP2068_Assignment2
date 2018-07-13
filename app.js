@@ -7,9 +7,10 @@ const bodyParser = require('body-parser');
 
 // Passport dependencies
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const session = require('express-session');
 
-const localStrategy = require('passport-local').Strategy;
+//const localStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -55,12 +56,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Use the User model to manage users
-const user = require('./models/User');
-passport.use(user.createStrategy());
+const User = require('./models/User');
+passport.use(User.createStrategy());
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: process.env.GOOGLE_CALLBACK_URL,
+  passReqToCallback: true
+},
+  (request, accessToken, refreshToken, profile, done) => {
+    User.findOrCreate({ username: profile.emails[0].value }, (err, user) =>
+      done(err, user));
+  }
+));
 
 // Read/write user login information to MongoDB
-passport.serializeUser(user.serializeUser());
-passport.deserializeUser(user.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
