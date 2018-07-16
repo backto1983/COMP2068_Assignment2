@@ -28,6 +28,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: 'Please enter goodreads URL.',
   },
+  imageUrl: {
+    type: String,
+    required: 'Please select a cover image.',
+  },
 });
 
 // Make the class public

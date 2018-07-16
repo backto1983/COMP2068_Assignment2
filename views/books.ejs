@@ -17,7 +17,7 @@
             </style>
             <% for (let i = 0; i < books.length; i++) { %>  
                 <li class="collection-item avatar">
-                    <img src="https://images.gr-assets.com/books/1281419771l/888628.jpg" alt="Book Cover Image" class="circle"> <!--<%= books[i].imageUrl %>-->
+                    <img src="<%= books[i].imageUrl %>" alt="Book Cover Image" class="circle"> <!--<%= books[i].imageUrl %>-->
                     <a href=<%= books[i].url %>><span class="title"><strong><%= books[i].title %></strong></span></a>                    
                     <p><%= books[i].author %> | 
                         <%= books[i].genre %> |

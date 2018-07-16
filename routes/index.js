@@ -13,6 +13,9 @@ const authController = require('../controllers/authController');
 // Using router to handle different browser requests
 const router = express.Router();
 
+// Get users listing
+router.get('/users', userController.getUsers);
+
 /* GET home page. */
 router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);

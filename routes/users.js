@@ -5,6 +5,6 @@ const authController = require('../controllers/authController');
 const router = express.Router();
 
 // Get users listing
-router.get('/users', authController.isLoggedIn, userController.getUsers);
+router.get('/users', userController.getUsers);
 
 module.exports = router;
