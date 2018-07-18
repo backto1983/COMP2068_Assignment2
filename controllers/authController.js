@@ -32,6 +32,6 @@ exports.googlePre = passport.authenticate('google', {
 });
 
 exports.googlePost = passport.authenticate('google', {
-  successRedirect: '/users',
+  successRedirect: '/books', //'/users'
   failureRedirect: '/login',
 });

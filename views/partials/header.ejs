@@ -27,13 +27,12 @@
           <ul class="right hide-on-med-and-down" id="navList">
             <!--Links to all views-->
             <li><a href="/books"><i class="material-icons">library_books</i></a></li>
-            <li><a href="/quotes"><i class="material-icons">format_quote</i></a></li>
             <% if (!user) { %>
             <li><a href="/registration">Register</a></li>
             <li><a href="/login">Login</a></li>
             <% } %>
             <% if (user) { %>
-              <li><a href="/users">Admin</a></li>
+              <li><a href="/users"><i class="material-icons">people</i></a></li>
               <li><a href="/logout">Logout</a></li>       
               <li><a href="/"><%= user.username %></a></li>
           <% } %>   

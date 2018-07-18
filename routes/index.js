@@ -13,12 +13,17 @@ const authController = require('../controllers/authController');
 // Using router to handle different browser requests
 const router = express.Router();
 
-// Get users listing
-router.get('/users', userController.getUsers);
+// Get users listing; isLoggedIn function is responsible for not letting unlogged visitors to access users.ejs
+router.get('/users', authController.isLoggedIn, userController.getUsers);
+
+router.get('/admin/delete/:id', userController.deleteUser);
 
 /* GET home page. */
 router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);
+router.get('/admin/delete/:id', viewsController.deleteBook);
+router.get('/admin/edit/:id', viewsController.editBook);
+router.post('/admin/edit/:id', viewsController.updateBook);
 
 router.get('/registration', userController.registerForm);
 router.post('/registration', userController.register, authController.login); 
@@ -33,7 +38,5 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/login');
 });
-
-router.get('/admin/delete/:id', viewsController.deleteBook);
 
 module.exports = router;

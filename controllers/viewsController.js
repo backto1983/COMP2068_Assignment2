@@ -43,3 +43,29 @@ exports.deleteBook = (req, res) => {
       },
     );
   };
+
+  exports.editBook = (req, res) => {
+    // Use Book model to find selected document
+    Book.findById({ _id: req.params.id }, (err, book) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('editBook', {
+          title: 'Edit Book',
+          book,
+          isActive: 'admin',
+          user: req.user,
+        });
+      }
+    });
+  };
+  
+  exports.updateBook = (req, res) => {  
+    Book.update({ _id: req.params.id }, req.body, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/books');
+      }
+    });
+  };

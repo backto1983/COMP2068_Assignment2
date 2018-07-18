@@ -58,3 +58,16 @@ exports.loginForm = (req, res) => {
     user: req.user,
   });  
 };
+
+exports.deleteUser = (req, res) => {
+  User.findByIdAndRemove(
+    { _id: req.params.id },
+    async (err, userJustDeleted) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/users');
+      }
+    },
+  );
+};

@@ -1,0 +1,38 @@
+<% include partials/header %>
+<main class="center">
+    <h1><%= title %></h1>
+    <form class="container" style="margin-left: 30%; margin-right: 30%" method="POST"> 
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="input-block" value="<%= book.title %>" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" class="input-block" value="<%= book.author %>" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" class="input-block" value="<%= book.genre %>" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s2" style="margin-bottom: 0">
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" name="pages" class="input-block" value="<%= book.pages %>" required>               
+            </div>
+        </div>   
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="imageUrl">Book Cover</label>
+                <input type="text" id="imageUrl" name="imageUrl" class="input-block" value="<%= book.imageUrl %>" required>               
+            </div>
+        </div>     
+        <button type="submit" class="waves-effect waves-light btn-small black" style="margin-right:43%">Save Changes</button>   
+    </form>    
+</main>
+<% include partials/footer %>
