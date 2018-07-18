@@ -32,6 +32,19 @@ exports.googlePre = passport.authenticate('google', {
 });
 
 exports.googlePost = passport.authenticate('google', {
-  successRedirect: '/books', //'/users'
+  successRedirect: '/books',
+  failureRedirect: '/login',
+});
+
+exports.microsoftPre = passport.authenticate('microsoft', {
+  scope: [
+    'openid',
+    'offline_access',
+    //'https://www.googleapis.com/auth/plus.profile.emails.read',
+  ],
+});
+
+exports.microsoftPost = passport.authenticate('microsoft', {
+  successRedirect: '/books',
   failureRedirect: '/login',
 });

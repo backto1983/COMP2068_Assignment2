@@ -2,7 +2,7 @@
  * File Name: index.js
  * Author Name: Henrique Oliveira
  * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
- * File Description: view routing
+ * File Description: View routing
  */
 
 const express = require('express');
@@ -38,6 +38,9 @@ router.post('/login', authController.login);
 
 router.get('/google', authController.googlePre);
 router.get('/google/callback', authController.googlePost);
+
+router.get('/microsoft', authController.microsoftPre);
+router.get('/microsoft/callback', authController.microsoftPost);
 
 router.get('/logout', (req, res) => {
   req.logout();

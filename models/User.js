@@ -1,3 +1,10 @@
+/**
+ * File Name: User.js
+ * Author Name: Henrique Oliveira
+ * Website Name: Assignment 2 - NodeJS application using ExpressJS, MongoDB / Mongoose and EJS
+ * File Description: User schema
+ */
+
 const mongoose = require('mongoose');
 const findOrCreate = require('mongoose-findorcreate');
 

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 // Passport dependencies
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const MicrosoftStrategy = require('passport-microsoft').Strategy;
 const session = require('express-session');
 
 //const localStrategy = require('passport-local').Strategy;
@@ -67,6 +68,18 @@ passport.use(new GoogleStrategy({
 },
   (request, accessToken, refreshToken, profile, done) => {
     User.findOrCreate({ username: profile.emails[0].value }, (err, user) =>
+      done(err, user));
+  }
+));
+
+passport.use(new MicrosoftStrategy({
+  clientID: process.env.MICROSOFT_CLIENT_ID,
+  clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
+  callbackURL: process.env.MICROSOFT_CALLBACK_URL,
+  passReqToCallback: true
+},
+  (request, accessToken, refreshToken, profile, done) => {
+    User.findOrCreate({ userId: profile.id }, (err, user) => 
       done(err, user));
   }
 ));
