@@ -44,6 +44,23 @@ exports.deleteBook = (req, res) => {
     );
   };
 
+  exports.addBook = (req, res) => {
+    res.render('addBook', {
+      title: 'Add Book',
+      user: req.user,
+    });
+  };
+
+  exports.createBook = async (req, res) => {
+    try {
+      const book = new Book(req.body);
+      await book.save();
+      res.redirect('/books');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   exports.editBook = (req, res) => {
     // Use Book model to find selected document
     Book.findById({ _id: req.params.id }, (err, book) => {

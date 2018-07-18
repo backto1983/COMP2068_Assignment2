@@ -30,5 +30,8 @@
                 </li>              
             <% } %> 
         </ul>
+        <% if (user) { %>
+            <a href="/addBook" class="waves-effect waves-light btn-small black" style="margin-bottom: 1%">Add Book</a>
+        <% } %>
 </main>
 <% include partials/footer %>  

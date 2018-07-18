@@ -1,0 +1,44 @@
+<% include partials/header %>
+<main class="center">
+    <h1 style="margin-top: 0; margin-bottom: 0"><%= title %></h1>
+    <form class="container" style="margin-left: 30%; margin-right: 30%" method="POST" action="/addBook"> 
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" class="input-block" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" class="input-block" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" class="input-block" required>               
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s2" style="margin-bottom: 0">
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" name="pages" class="input-block" required>               
+            </div>
+        </div>   
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="url">Goodreads URL</label>
+                <input type="text" id="url" name="url" class="input-block" required>               
+            </div>
+        </div>  
+        <div class="row" style="margin-bottom: 0">
+            <div class="input-field col s7" style="margin-bottom: 0">
+                <label for="imageUrl">Book Cover</label>
+                <input type="text" id="imageUrl" name="imageUrl" class="input-block" required>               
+            </div>
+        </div>     
+        <button type="submit" class="waves-effect waves-light btn-small black" style="margin-right:43%">Add Book</button>   
+    </form>    
+</main>
+<% include partials/footer %>

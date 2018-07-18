@@ -21,7 +21,12 @@ router.get('/admin/delete/:id', userController.deleteUser);
 /* GET home page. */
 router.get('/', viewsController.homePage);
 router.get('/books', viewsController.getBooks);
+
+router.get('/addBook', authController.isLoggedIn, viewsController.addBook);
+router.post('/addBook', authController.isLoggedIn, viewsController.createBook);
+
 router.get('/admin/delete/:id', viewsController.deleteBook);
+
 router.get('/admin/edit/:id', viewsController.editBook);
 router.post('/admin/edit/:id', viewsController.updateBook);
 

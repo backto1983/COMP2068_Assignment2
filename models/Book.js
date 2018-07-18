@@ -30,7 +30,7 @@ const bookSchema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
-    required: 'Please select a cover image.',
+    required: 'Please enter book cover URL.',
   },
 });
 
