@@ -27,8 +27,8 @@ router.post('/addBook', authController.isLoggedIn, viewsController.createBook);
 
 router.get('/admin/delete/:id', viewsController.deleteBook);
 
-router.get('/admin/edit/:id', viewsController.editBook);
-router.post('/admin/edit/:id', viewsController.updateBook);
+router.get('/admin/edit/:id', authController.isLoggedIn, viewsController.editBook);
+router.post('/admin/edit/:id', authController.isLoggedIn, viewsController.updateBook);
 
 router.get('/registration', userController.registerForm);
 router.post('/registration', userController.register, authController.login); 
